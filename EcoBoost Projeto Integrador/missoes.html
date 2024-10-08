@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="img/leaf_icon_138426.png"
+      type="image/x-icon"
+    />
+    <title>EcoBoost | Missões</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #019147;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        padding: 10px;
+        background-color: #007137;
+        border-radius: 30px;
+        margin: 10px 0;
+        transition: border-radius 0.3s ease;
+      }
+      header.open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      header h1 {
+        margin: 0;
+        color: #fff;
+        text-align: center;
+        flex: 1;
+      }
+
+      header a{
+        text-decoration: none;
+        color: white;
+      }
+
+      .menu-btn {
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+        transition: transform 0.3s ease;
+      }
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%) scaleY(0);
+        width: 300px;
+        background-color: #007137;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        padding: 10px;
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
+      .menu.open {
+        display: flex;
+        transform: translateX(-50%) scaleY(1);
+      }
+      .menu a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu a:hover {
+        text-decoration: underline;
+      }
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+      .task {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 10px;
+        margin: 5px auto;
+        text-decoration: none;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #007137 !important;
+      }
+      .content1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .accordion {
+        background-color: #DEF4E9;
+        color: black;
+        cursor: pointer;
+        padding: 20px;
+        width: 300px;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: background-color 0.4s ease;
+        margin: 10px 0;
+        border-radius: 10px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .accordion.active, .accordion:hover {
+        background-color: #DEF4E9;
+      }
+      .panel {
+        padding: 20px;
+        display: none;
+        background-color: #DEF4E9;
+        overflow: hidden;
+        width: 300px;
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 10px;
+      }
+
+      .panel p{
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">☰</button>
+      <h1>
+        <a href="inicial.html">EcoBoost</a> <img class="icon" src="img/leaf_icon_138426.png" alt="" />
+      </h1>
+    </header>
+    <nav class="menu" id="menu">
+      <a href="#home">Saiba mais</a>
+      <a href="#about">Troque pontos</a>
+      <a href="#services">Seu perfil</a>
+      <a href="#contact">Mudando o mundo</a>
+      <a href="#contact">Explorer</a>
+      <a class="task" href="missoes.html">Tarefas diárias</a>
+    </nav>
+    <div class="content1">
+      <img style="width: 80px; height: 80px;" src="img/terra.png" alt="">
+      <h1 style="color: white !important;">Missões</h1>
+      
+      <button class="accordion">Missão 1 <span>▼</span></button>
+      <div class="panel">
+        <p>Detalhes da Missão 1...</p>
+      </div>
+
+      <button class="accordion">Missão 2 <span>▼</span></button>
+      <div class="panel">
+        <p>Detalhes da Missão 2...</p>
+      </div>
+
+      <button class="accordion">Missão 3 <span>▼</span></button>
+      <div class="panel">
+        <p>Detalhes da Missão 3...</p>
+      </div>
+
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        const header = document.getElementById("header");
+        const menuBtn = document.getElementById("menu-btn");
+        if (menu.classList.contains("open")) {
+          menu.classList.remove("open");
+          header.classList.remove("open");
+          menuBtn.innerHTML = "☰";
+        } else {
+          menu.classList.add("open");
+          header.classList.add("open");
+          menuBtn.innerHTML = "✖";
+        }
+      }
+
+      // Accordion Functionality
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

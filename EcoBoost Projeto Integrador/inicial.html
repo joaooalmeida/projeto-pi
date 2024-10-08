@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="img/leaf_icon_138426.png"
+      type="image/x-icon"
+    />
+    <title>EcoBoost | Início</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #019147;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        padding: 10px;
+        background-color: #007137;
+        border-radius: 30px;
+        margin: 10px 0;
+        transition: border-radius 0.3s ease;
+      }
+
+      header.open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      header h1 {
+        margin: 0;
+        color: #fff;
+        text-align: center;
+        flex: 1;
+      }
+
+      .menu-btn {
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+        transition: transform 0.3s ease;
+      }
+
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%) scaleY(0);
+        width: 300px;
+        background-color: #007137;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        padding: 10px;
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
+
+      .menu.open {
+        display: flex;
+        transform: translateX(-50%) scaleY(1);
+      }
+
+      .menu a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu a:hover {
+        text-decoration: underline;
+      }
+
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .task {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 10px;
+        margin: 5px auto;
+        text-decoration: none;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #007137 !important;
+      }
+
+      .content1 {
+        margin: -5px 10px auto;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .content1 button {
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .content2 {
+        margin: 45px auto;
+        padding: 0;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #fff;
+        color: #007137 !important;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+      }
+
+      .content2 div {
+        margin: 10px auto;
+        margin-bottom: 50px;
+        padding: 10px;
+        border-radius: 25px;
+        background-color: #def4e9;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .content2 div img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .footer {
+        margin: 0;
+        text-align: center;
+        padding: 0;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+      }
+
+      .footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Estilos do modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        max-height: 70vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+      }
+
+      .modal-content p {
+        text-align: left;
+        color: black !important;
+      }
+
+      .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #accept-terms {
+        background-color: #179b3b;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      /* Media Queries para desktop */
+      @media (min-width: 768px) {
+        header {
+          width: 100%;
+          border-radius: 0;
+          padding: 20px;
+          margin: 0;
+        }
+
+        .menu {
+          position: static;
+          transform: none;
+          display: flex;
+          flex-direction: row;
+          width: auto;
+          background: none;
+          border-radius: 0;
+          padding: 0;
+          margin: 30px;
+        }
+
+        .menu a {
+          padding: 0 15px;
+        }
+
+        .content1, .content2 {
+          width: 100%;
+          max-width: 1700px;
+          border-radius: 20px;
+        }
+
+        .content1 img, .content2 img {
+          width: 40vh;
+          height: 40vh;
+        }
+
+        .content2 div {
+          width: 600px;
+        }
+
+        .footer {
+          font-size: 1.2rem;
+        }
+
+        .modal-content {
+          width: 60%;
+          max-width: 800px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">☰</button>
+      <h1>
+        EcoBoost <img class="icon" src="img/leaf_icon_138426.png" alt="" />
+      </h1>
+    </header>
+    <nav class="menu" id="menu">
+      <a href="#home">Saiba mais</a>
+      <a href="#about">Troque pontos</a>
+      <a href="#services">Seu perfil</a>
+      <a href="#contact">Mudando o mundo</a>
+      <a href="#contact">Explorer</a>
+      <a class="task" href="missoes.html">Tarefas diárias</a>
+    </nav>
+    <div class="content1">
+      <h4>
+        Pequenas ações podem ter um impacto global significativo quando se trata
+        de sustentabilidade.
+      </h4>
+      <img src="img/icon-planeta.png" alt="" />
+      <h5>Vem mudar o mundo com a gente!</h5>
+      <button href="#">Missões</button>
+    </div>
+    <div class="content2">
+      <h3>A sustentabilidade é o caminho para o futuro</h3>
+      <img src="img/icon-familia.png" alt="" />
+      <div>
+        <img src="img/planeta-terra.png" alt="" />
+        <h4>
+          Opte por uma mudança de vida que ajude o meio ambiente juntamente com
+          EcoBoost
+        </h4>
+      </div>
+    </div>
+    <div class="footer">
+      <p>2024 © ECOBOOST™ | <a href="#"

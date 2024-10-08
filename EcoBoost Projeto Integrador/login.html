@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="img/leaf_icon_138426.png"
+      type="image/x-icon"
+    />
+    <title>EcoBoost - Login</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #019147;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+
+      .header {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .header a{
+        text-decoration: none;
+        color: white;
+      }
+
+      .header h1 {
+        background-color: #007137;
+        border-radius: 30px;
+        padding: 10px;
+        margin: 10px 0;
+        color: #fff;
+        text-align: center;
+      }
+
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+        margin: auto;
+      }
+
+      .container h3 {
+        color: #222222;
+        margin: 10px 0;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="password"] {
+        padding-right: 40px;
+      }
+
+      input[type="password"]::placeholder {
+        color: #ccc;
+      }
+
+      .password-eye {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      button {
+        background-color: #179b3b;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .logos {
+        width: 20px;
+        height: 20px;
+      }
+
+      .login-with {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+
+      .login-with button {
+        background-color: #fff;
+        color: #179b3b;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+        margin-top: 10px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px 0;
+        font-size: 0.8rem;
+        color: black;
+      }
+
+      .footer a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .separator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #22222288;
+      }
+
+      .separator hr {
+        width: 150px;
+        border: none;
+        border-top: 1px solid #22222288;
+        margin: 0 10px;
+      }
+
+      /* Estilos do modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        max-height: 70vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+      }
+
+      .modal-content p {
+        text-align: left;
+        color: black !important;
+      }
+
+      .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #accept-terms {
+        display: none;
+      }
+      
+    </style>
+
+
+  </head>
+  <body>
+    <div class="header">
+      <h1><a href="inicial.html">EcoBoost</a></h1>
+    </div>
+    <div class="container">
+      <h3>Entre</h3>
+      <hr style="margin-bottom: 30px" />
+      <form>
+        <div class="form-group">
+          <input
+            type="text"
+            id="username"
+            placeholder="Digite seu e-mail ou nome de usuário"
+          />
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Digite sua senha" />
+          <i class="password-eye fas fa-eye"></i>
+        </div>
+        <button type="submit" style="background-color: #98c455">Entrar</button>
+        <div class="separator">
+          <hr />
+          <p>ou</p>
+          <hr />
+        </div>
+        <div class="login-with">
+          <button type="button">
+            <img
+              class="logos"
+              src="img/logotipo-da-apple.png"
+              alt="Apple Logo"
+            />
+          </button>
+          <button type="button">
+            <img class="logos" src="img/google.png" alt="Google Logo" />
+          </button>
+        </div>
+        <p style="color: rgba(0, 0, 0, 0.637)">
+          Novo na EcoBoost?
+          <a href="#" style="text-decoration: none; color: #019147"
+            >Cadastre-se</a
+          >
+        </p>
+      </form>
+    </div>
+    <div class="footer">
+      <img
+        style="width: 50px; height: 50px"
+        src="img/leaf_icon_138426.png"
+        alt="Leaf Icon"
+      />
+      <p>2024 © ECOBOOST™ | <a href="#" id="open-modal">Termos de Uso</a></p>
+    </div>
+
+    <!-- Modal -->
+    <div id="terms-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Termos de Uso</h2>
+        <p>
+          <b>Termos de Uso do Aplicativo EcoBoost</b>
+          <br /><br />
+          Bem-vindo ao EcoBoost, um aplicativo que promove a sustentabilidade
+          através de tarefas simples do dia a dia, recompensando os usuários com
+          pontos que podem ser trocados por dinheiro. Ao utilizar o EcoBoost,
+          você concorda com os seguintes Termos de Uso:
+          <br /><br />
+          <b>1. Aceitação dos Termos</b>
+          <br /><br />
+          Ao acessar ou usar o EcoBoost, você concorda em cumprir e estar
+          vinculado a estes Termos de Uso e à nossa Política de Privacidade. Se
+          você não concorda com estes termos, não utilize o aplicativo.
+          <br /><br />
+          <b>2. Descrição do Serviço</b>
+          <br /><br />
+          EcoBoost é um aplicativo móvel que incentiva práticas sustentáveis
+          através da realização de tarefas diárias. Os usuários recebem pontos
+          por completar essas tarefas, que podem ser trocados por recompensas
+          monetárias. As tarefas incluem atividades como reciclagem, economia de
+          água, uso de transporte sustentável, entre outras.
+          <br /><br />
+          <b>3. Registro e Conta</b>
+          <br /><br />
+          Para utilizar o EcoBoost, você deve criar uma conta fornecendo
+          informações verdadeiras, precisas e completas. Você é responsável por
+          manter a confidencialidade de sua conta e senha, e por todas as
+          atividades que ocorram sob sua conta. É proibido criar contas em nome
+          de terceiros sem permissão.
+          <br /><br />
+          <b>3.1. Idade Mínima</b>
+          <br /><br />
+          Você deve ter pelo menos 13 anos para usar o EcoBoost. Se você for
+          menor de 18 anos, você precisa do consentimento dos pais ou
+          responsáveis para utilizar o aplicativo.
+          <br /><br />
+          <b>3.2. Veracidade das Informações</b>
+          <br /><br />
+          Você concorda em fornecer informações verdadeiras, precisas, atuais e
+          completas sobre você mesmo conforme solicitado pelo processo de
+          registro. Se fornecer qualquer informação que seja falsa, imprecisa,
+          desatualizada ou incompleta, o EcoBoost tem o direito de suspender ou
+          encerrar sua conta e recusar qualquer uso atual ou futuro do
+          aplicativo.
+          <br /><br />
+          <b>4. Uso do Aplicativo</b>
+          <br /><br />
+          <b>4.1. Responsabilidades do Usuário</b>
+          <br /><br />
+          - Você deve usar o EcoBoost de acordo com todas as leis e regulamentos
+          aplicáveis.
+          <br />
+          - Você concorda em não usar o aplicativo para qualquer propósito
+          ilegal ou não autorizado.
+          <br />
+          - Você não deve usar o EcoBoost para transmitir qualquer material que
+          seja difamatório, ofensivo ou de outra forma objetável.
+          <br /><br />
+          <b>4.2. Tarefas e Pontuação</b>
+          <br /><br />
+          - As tarefas disponíveis no aplicativo devem ser completadas de forma
+          honesta.
+          <br />
+          - O EcoBoost se reserva o direito de verificar a autenticidade da
+          conclusão das tarefas.
+          <br />
+          - Pontos acumulados podem ser trocados por dinheiro conforme os termos
+          estabelecidos no aplicativo.
+          <br />
+          - Os pontos acumulados são pessoais e intransferíveis entre contas.
+          <br /><br />
+          <b>4.3. Uso Adequado</b>
+          <br /><br />
+          - Você concorda em não usar nenhum método automatizado, como scripts
+          ou bots, para acessar, copiar ou monitorar qualquer parte do
+          aplicativo.
+          <br />
+          - Você não deve tentar interferir com o funcionamento correto do
+          EcoBoost ou com qualquer atividade conduzida no aplicativo.
+          <br /><br />
+          <b>5. Troca de Pontos</b>
+          <br /><br />
+          - Os pontos acumulados podem ser trocados por dinheiro conforme as
+          condições estabelecidas no aplicativo.
+          <br />
+          - O EcoBoost se reserva o direito de alterar a taxa de conversão de
+          pontos para dinheiro a qualquer momento.
+          <br />
+          - A troca de pontos por dinheiro está sujeita a limites mínimos e
+          máximos conforme especificado no aplicativo.
+          <br />
+          - Os pagamentos serão efetuados através dos métodos de pagamento
+          indicados no aplicativo, e os usuários são responsáveis por fornecer
+          informações de pagamento precisas.
+          <br /><br />
+          <b>6. Propriedade Intelectual</b>
+          <br /><br />
+          Todo o conteúdo do aplicativo, incluindo texto, gráficos, logotipos,
+          ícones, imagens e software, é propriedade do EcoBoost ou de seus
+          licenciadores e está protegido por leis de direitos autorais e outras
+          leis de propriedade intelectual. Você não pode copiar, modificar,
+          distribuir, vender ou alugar qualquer parte do aplicativo ou do
+          conteúdo incluído, sem a permissão explícita do EcoBoost.
+          <br /><br />
+          <b>7. Limitação de Responsabilidade</b>
+          <br /><br />
+          EcoBoost não será responsável por quaisquer danos diretos, indiretos,
+          incidentais, especiais ou consequenciais decorrentes do uso ou da
+          incapacidade de usar o aplicativo, mesmo que o EcoBoost tenha sido
+          avisado da possibilidade de tais danos. Isso inclui, mas não está
+          limitado a, danos por perda de lucros, uso, dados ou outras perdas
+          intangíveis.
+          <br /><br />
+          <b>8. Alterações aos Termos</b>
+          <br /><br />
+          O EcoBoost se reserva o direito de modificar estes Termos de Uso a
+          qualquer momento. Quaisquer alterações serão notificadas aos usuários
+          através do aplicativo. O uso continuado do aplicativo após a
+          publicação das alterações constituirá sua aceitação das alterações.
+          <br /><br />
+          <b>9. Rescisão</b>
+          <br /><br />
+          O EcoBoost pode suspender ou encerrar sua conta e seu acesso ao
+          aplicativo a qualquer momento, sem aviso prévio, se você violar estes
+          Termos de Uso. Em caso de rescisão, todos os pontos acumulados em sua
+          conta serão perdidos.
+          <br /><br />
+          <b>10. Privacidade</b>
+          <br /><br />
+          Seu uso do EcoBoost também é regido pela nossa Política de
+          Privacidade. Ao utilizar o aplicativo, você concorda com a coleta e
+          uso de suas informações conforme descrito na Política de Privacidade
+          <br /><br />
+          <b>11. Contato</b>
+          <br /><br />
+          Se você tiver qualquer dúvida sobre estes Termos de Uso, entre em
+          contato conosco pelo e-mail: suporte@ecoboost.com.br
+          <br /><br />
+          <b>12. Disposições Gerais</b>
+          <br /><br />
+          Estes Termos de Uso constituem o acordo integral entre você e o
+          EcoBoost em relação ao uso do aplicativo. Se qualquer disposição
+          destes Termos de Uso for considerada inválida, as disposições
+          restantes permanecerão em pleno vigor e efeito. Estes Termos de Uso
+          serão regidos e interpretados de acordo com as leis do Brasil, e
+          quaisquer disputas decorrentes destes termos serão resolvidas nos
+          tribunais competentes do Brasil.
+          <br /><br />
+          <b>Última atualização: 01/06/2024</b>
+          <br /><br />
+          <b>EcoBoost</b>
+          <br />
+          Promovendo a Sustentabilidade, Recompensando suas Ações
+        </p>
+        <button id="accept-terms">OK</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const passwordInput = document.getElementById("password");
+        const passwordEye = document.querySelector(".password-eye");
+
+        passwordEye.addEventListener("click", () => {
+          const type = passwordInput.type === "password" ? "text" : "password";
+          passwordInput.type = type;
+          passwordEye.classList.toggle("fa-eye");
+          passwordEye.classList.toggle("fa-eye-slash");
+        });
+
+        const modal = document.getElementById("terms-modal");
+        const openModalBtn = document.getElementById("open-modal");
+        const closeModalBtn = document.querySelector(".close-btn");
+        const acceptTermsBtn = document.getElementById("accept-terms");
+
+        openModalBtn.addEventListener("click", () => {
+          modal.style.display = "block";
+        });
+
+        closeModalBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        acceptTermsBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+
+        const modalContent = document.querySelector(".modal-content");
+        modalContent.addEventListener("scroll", () => {
+          if (
+            modalContent.scrollTop + modalContent.clientHeight >=
+            modalContent.scrollHeight
+          ) {
+            acceptTermsBtn.style.display = "block";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
